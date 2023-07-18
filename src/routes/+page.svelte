@@ -1,7 +1,5 @@
 <script>
   // imports
-  import { isEmail, isMobilePhone } from "validator";
-  import { PhoneNumberFormat, PhoneNumberUtil } from "google-libphonenumber";
   import { createClient } from "@supabase/supabase-js";
 
   // form vars
@@ -16,7 +14,6 @@
 
   // status vars
   let statusMessage = "";
-  let formValid = false;
   let isSuccess = false;
   let isSubmitting = false;
   let submitButtonText = "Submit";
@@ -29,9 +26,6 @@
   supabase = createClient(supabaseUrl, supabaseKey, {
     persistSession: false,
   });
-
-  // phone number validation
-  const phoneUtil = PhoneNumberUtil.getInstance();
 
   // Function to verify if email exists
   async function emailExists() {
