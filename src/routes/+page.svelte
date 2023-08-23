@@ -95,6 +95,16 @@
       submitButtonText = "Submit";
       resetForm();
     }
+
+    // Google Analytics 4 (GA4)
+    gtag("event", "submit", {
+      event_category: "Form",
+      event_label: "Form Submission",
+    });
+
+    isSubmitting = false;
+    submitButtonText = "Submit";
+    resetForm();
   }
 </script>
 
