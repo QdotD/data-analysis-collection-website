@@ -98,6 +98,26 @@
   }
 </script>
 
+<svelte:head>
+  <title>Form</title>
+  <meta name="description" content="Form to collect fake data" />
+  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-HM7RF19H2D"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-HM7RF19H2D");
+  </script>
+</svelte:head>
+
 <form id="form_id" on:submit|preventDefault={handleSubmit}>
   <input
     id="first_name_input_id"
