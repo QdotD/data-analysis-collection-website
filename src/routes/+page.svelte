@@ -70,6 +70,18 @@
     country = "";
   };
 
+  // helper function to get client_id
+  function getClientIdFromGaCookie() {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; _ga=`);
+    if (parts.length === 2) {
+      const gaValue = parts.pop().split(";").shift();
+      const clientId = gaValue.split(".").slice(2).join(".");
+      return clientId;
+    }
+    return null;
+  }
+
   // Main function to handle the form submission
   async function handleSubmit() {
     isSubmitting = true;
@@ -92,20 +104,24 @@
       statusMessage = "User added successfully";
       isSuccess = true;
 
+      // Grab the client_id from _ga cookie
+      const clientId = getClientIdFromGaCookie();
+
       // Push form_submit to dataLayer
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        'event': 'form_submit',
-        'first_name': first_name,
-        'last_name': last_name,
-        'email': email,
-        'phone_number': phone_number,
-        'age': age,
-        'job': job,
-        'country': country,
-        'salary_usd': salary_usd
+        event: "form_submit",
+        client_id: clientId,
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        phone_number: phone_number,
+        age: age,
+        job: job,
+        country: country,
+        salary_usd: salary_usd,
       });
-      
+
       isSubmitting = false;
       submitButtonText = "Submit";
       resetForm();
