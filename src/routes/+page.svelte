@@ -91,6 +91,21 @@
     } else {
       statusMessage = "User added successfully";
       isSuccess = true;
+
+      // Push form_submit to dataLayer
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'form_submit',
+        'first_name': first_name,
+        'last_name': last_name,
+        'email': email,
+        'phone_number': phone_number,
+        'age': age,
+        'job': job,
+        'country': country,
+        'salary_usd': salary_usd
+      });
+      
       isSubmitting = false;
       submitButtonText = "Submit";
       resetForm();
