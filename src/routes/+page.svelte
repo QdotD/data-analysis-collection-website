@@ -44,10 +44,7 @@
       last_name,
       email,
       phone_number,
-      job,
-      country,
-      salary_usd,
-      age,
+      country
     });
 
     if (insertError) {
