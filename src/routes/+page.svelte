@@ -140,7 +140,7 @@
   <meta name="description" content="Tracking testing environment for Jarrah Growth Marketing" />
 </svelte:head>
 
-<a href="/about"><button id="about_page_button">About Page</button></a>
+<a href="/about" id="about_page_button" class="button">About Page</a>
 
 <br>
 
@@ -228,7 +228,7 @@
     border-color: #888;
   }
 
-  button {
+  button, .button{
     margin-top: 20px;
     padding: 10px;
     border: none;
@@ -238,9 +238,14 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 1em;
+    text-decoration: none;
   }
 
   button:hover {
+    background-color: #666;
+  }
+
+  .button:hover {
     background-color: #666;
   }
 
