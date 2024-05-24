@@ -111,15 +111,11 @@
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "form_submit",
-        client_id: clientId,
         first_name: first_name,
         last_name: last_name,
         email: email,
         phone_number: phone_number,
-        age: age,
-        job: job,
         country: country,
-        salary_usd: salary_usd,
       });
 
       isSubmitting = false;
@@ -140,9 +136,13 @@
 </script>
 
 <svelte:head>
-  <title>Form</title>
-  <meta name="description" content="Form to collect fake data" />
+  <title>Jarrah Sandbox</title>
+  <meta name="description" content="Tracking testing environment for Jarrah Growth Marketing" />
 </svelte:head>
+
+<a href="/about"><button id="about_page_button">About Page</button></a>
+
+<br>
 
 <form id="form_id" on:submit|preventDefault={handleSubmit}>
   <input
@@ -158,14 +158,6 @@
     type="text"
     bind:value={last_name}
     placeholder="Last Name"
-    required
-  />
-
-  <input
-    id="age_input_id"
-    type="number"
-    bind:value={age}
-    placeholder="Age"
     required
   />
 
@@ -186,26 +178,10 @@
   />
 
   <input
-    id="job_input_id"
-    type="text"
-    bind:value={job}
-    placeholder="Job"
-    required
-  />
-
-  <input
     id="country_input_id"
     type="text"
     bind:value={country}
     placeholder="Country"
-    required
-  />
-
-  <input
-    id="salary_usd_input_id"
-    type="number"
-    bind:value={salary_usd}
-    placeholder="salary_usd"
     required
   />
 
@@ -221,6 +197,7 @@
 <style>
   :global(body) {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
